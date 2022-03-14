@@ -38,7 +38,6 @@ class MainMenuState extends MusicBeatState
 		'options',
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if MODS_ALLOWED 'mods', #end
 		#if !switch 'donate' #end
 	];
 
@@ -239,10 +238,6 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									#if MODS_ALLOWED
-									case 'mods':
-										MusicBeatState.switchState(new ModsMenuState());
-									#end
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':

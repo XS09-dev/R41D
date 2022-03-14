@@ -204,7 +204,7 @@ class StageEditorState extends MusicBeatState
 		UI_stagebox.cameras = [camMenu];
 
 		UI_stagebox.resize(350, 350);
-		UI_stagebox.x = UI_box.x - 1000;
+		UI_stagebox.x = UI_box.x - 100;
 		UI_stagebox.y = UI_box.y + UI_box.height;
 		UI_stagebox.scrollFactor.set();
 		add(UI_stagebox);
@@ -218,7 +218,7 @@ class StageEditorState extends MusicBeatState
 
 		UI_stagebox.selected_tab_id = 'Layers';
 
-		var tipText:FlxText = new FlxText(FlxG.width - 20, FlxG.height, 0, "E/Q - Camera Zoom In/Out
+		var tipText:FlxText = new FlxText(FlxG.width - FlxG.width + 250, FlxG.height, 0, "E/Q - Camera Zoom In/Out
         \nArrow Keys/Hold And Drag\n - Move Layer
         \nR - Reset Current Zoom", 12);
 		tipText.cameras = [camTips];
@@ -249,7 +249,7 @@ class StageEditorState extends MusicBeatState
 
 	function addLayersUI()
 	{
-		
+
 		nameInputText = new FlxUIInputText(15, 50, 200, "", 8);
 		var namelabel = new FlxText(15, nameInputText.y + 20, 64, 'Layer Name');
 		directoryInputText = new FlxUIInputText(15, nameInputText.y + 50, 200, "", 8);
@@ -368,7 +368,7 @@ class StageEditorState extends MusicBeatState
 				remove(createdLayer);
 				visualLayers.remove(createdLayer);
 				stageFile.layerArray.remove(stageSwag);
-				
+
 			}
 		});
 
@@ -516,7 +516,7 @@ class StageEditorState extends MusicBeatState
 
 			layerStepper.value++;
 			layerStepper.max++;
-		
+
 			nameInputText.text = layer.name;
 			directoryInputText.text = layer.directory;
 			xInputText.text = Std.string(layer.xAxis);
@@ -672,13 +672,13 @@ class StageEditorState extends MusicBeatState
 				directory: "",
 				defaultZoom: 0.9,
 				isPixelStage: false,
-			
+
 				boyfriend: [770, 100],
 				girlfriend: [400, 130],
 				opponent: [100, 100],
 				layerArray: [],
 				hide_girlfriend: false,
-			
+
 				camera_boyfriend: [0, 0],
 				camera_opponent: [0, 0],
 				camera_girlfriend: [0, 0],
@@ -846,7 +846,15 @@ class StageEditorState extends MusicBeatState
 			isPixelStage: false,
 			boyfriend: stageFile.boyfriend,
 			girlfriend: stageFile.girlfriend,
-			opponent: stageFile.opponent
+			opponent: stageFile.opponent,
+
+			hide_girlfriend: stageFile.hide_girlfriend,
+
+			camera_boyfriend: stageFile.camera_boyfriend,
+			camera_opponent: stageFile.camera_opponent,
+			camera_girlfriend: stageFile.camera_girlfriend,
+			camera_speed: stageFile.camera_speed
+
 		}
 
 		var data:String = Json.stringify(stageFile, "\t");
@@ -864,14 +872,12 @@ class StageEditorState extends MusicBeatState
 	{
 		if (dirinputtext.text != "")
 		{
-			{
-				_file = new FileReference();
-				_file.addEventListener(Event.COMPLETE, onSaveComplete);
-				_file.addEventListener(Event.CANCEL, onSaveCancel);
-				_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-				_file.save("function onCreate()\n" + luaStages.join("\n") + "\n" + luaScrollFactors.join("\n") + "\n" + luaFlipY.join("\n") + "\n" + luaFlipX.join("\n") + "\n" + luaAdded.join("\n") + "\n" + "end",
-					dirinputtext.text + ".lua");
-			}
+			_file = new FileReference();
+			_file.addEventListener(Event.COMPLETE, onSaveComplete);
+			_file.addEventListener(Event.CANCEL, onSaveCancel);
+			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+			_file.save("function onCreate()\n" + luaStages.join("\n") + "\n" + luaScrollFactors.join("\n") + "\n" + luaFlipY.join("\n") + "\n" + luaFlipX.join("\n") + "\n" + luaAdded.join("\n") + "\n" + "end",
+			dirinputtext.text + ".lua");
 		}
 	}
 
@@ -981,4 +987,4 @@ class StageEditorState extends MusicBeatState
 		_file = null;
 		trace("Problem loading file");
 	}
-}
+} 
