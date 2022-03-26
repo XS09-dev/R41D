@@ -297,6 +297,14 @@ class StageEditorState extends MusicBeatState
 				flipY: isflippedY.checked
 			};
 
+		function startIntro()
+		{
+		    if(FlxG.sound.music == null) {
+			FlxG.sound.playMusic(Paths.music('offsetSong'), 0);
+		    FlxG.sound.music.fadeIn(4, 0, 0.7);
+			}
+		}
+
 			var luaMakeStage:String = "makeLuaSprite('" + nameInputText.text + "', " + "'" + directoryInputText.text + "', " + xInputText.text + ", "
 				+ yInputText.text + ");";
 			var luaMakeScrollFactor:String = "setScrollFactor('" + nameInputText.text + "', " + stepperscrollX.text + ", " + stepperscrollY.text + ");";
