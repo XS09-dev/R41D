@@ -121,6 +121,9 @@ Anyways this stops people from using charting menu in your mod in freeplay.
 ## Instant Respawn in options
 Thanks to https://github.com/MisterRafers we have Instant respawn in options. Basically resets automatically without playing the animation of dead bf.
 
+## NOLINK in credits
+Thanks to https://github.com/Cherif107 you can put "nolink" where you are supposed to put a link in credits state!
+
 ## Haxeflixel autopause option
 Thanks to https://github.com/ActualMandM now have an option to disable or enable haxeflixel autopause.
 So ya know you don't have to deal with long ass cutscenes.

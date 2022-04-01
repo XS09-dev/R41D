@@ -19,6 +19,7 @@ import sys.FileSystem;
 #end
 import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
+import haxe.Json;
 
 import flash.media.Sound;
 
@@ -188,14 +189,13 @@ class Paths
 		return getPath('$key.lua', TEXT, library);
 	}
 
+	#if VIDEOS_ALLOWED
 	static public function video(key:String)
 	{
-		#if MODS_ALLOWED
 		var file:String = modsVideo(key);
 		if(FileSystem.exists(file)) {
 			return file;
 		}
-		#end
 		return 'assets/videos/$key.$VIDEO_EXT';
 	}
 
@@ -204,6 +204,7 @@ class Paths
 		var sound:Sound = returnSound('sounds', key, library);
 		return sound;
 	}
+	#end 
 	
 	inline static public function soundRandom(key:String, min:Int, max:Int, ?library:String)
 	{
@@ -354,6 +355,37 @@ class Paths
 		return null;
 	}
 
+	static public function getGlobalMods(){
+		var modNames:Array<String> = [];
+		if (FileSystem.exists("modsList.txt"))
+		{
+			var list:Array<String> = CoolUtil.listFromString(File.getContent("modsList.txt"));
+			for (i in list)
+			{
+				var dat = i.split("|");
+				if (dat[1] == "1")
+				{
+					var folder = dat[0];
+					var path = Paths.mods(folder + '/pack.json');
+					if(FileSystem.exists(path)) {
+						try{
+							var rawJson:String = File.getContent(path);
+							if(rawJson != null && rawJson.length > 0) {
+								var stuff:Dynamic = Json.parse(rawJson);
+								var global:Bool = Reflect.getProperty(stuff, "runsGlobally");
+								if(global)modNames.push(dat[0]);
+							}
+						}catch(e:Dynamic){
+							trace(e);
+						}
+					}
+				}
+			}
+		}
+		return modNames;
+	}
+
+
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 	public static function returnSound(path:String, key:String, ?library:String) {
 		#if MODS_ALLOWED
@@ -432,6 +464,13 @@ class Paths
 				return fileToCheck;
 			}
 		}
+		for(mod in getGlobalMods()){
+			var fileToCheck:String = mods(mod + '/' + key);
+			if(FileSystem.exists(fileToCheck))
+				return fileToCheck;
+
+		}
+
 		return 'mods/' + key;
 	}
 	static public function getModDirectories():Array<String> {

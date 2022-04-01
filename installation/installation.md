@@ -2,7 +2,7 @@
 Gives you a folder with all the CMD folders to install Friday Night Funkin' With.
 
 YOU MUST:
-install Haxe 4.1.5 or 4.2.4. Here is the link. https://haxe.org/download/version/4.2.4/
+install Haxe 4.1.5 or 4.2.5. Here is the link. https://haxe.org/download/version/4.2.5/
 Than install Git. https://git-scm.com/downloads
 Finally Install https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes after downloading (visual studio 2019) make sure to download these indiviual components.
 ```

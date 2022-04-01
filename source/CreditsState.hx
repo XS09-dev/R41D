@@ -114,8 +114,9 @@ class CreditsState extends MusicBeatState
 			['Special Thanks'],
 			['MagnumsrtYT',        '',      "Made the stage editor",                                'https://twitter.com/MagnumsrtYT',      '0000FF'],
 			['BeastlyGhost',       '',      "Editor Disabled in story menu",                        'https://twitter.com/Fan_de_RPG',       '00A2E8'],
-			['MisterRafers',       '',       "Made Instant Respawn",                                 'https://github.com/MisterRafers',      'FFC0CB'],
-			['Michael',            '',       "HaxeFlixel auto pause option",                         'https://github.com/ActualMandM',       '0c9db5'],
+			['MisterRafers',       '',      "Made Instant Respawn",                                 'https://github.com/MisterRafers',      'FFC0CB'],
+			['Michael',            '',      "HaxeFlixel auto pause option",                         'https://github.com/ActualMandM',       '0c9db5'],
+			['Cherif107',          '',      "NOLINK creditstate",                                   'https://github.com/Cherif107',         '0c9db5'],
 			['Thank you Psych Team']
         ];
 		
@@ -228,7 +229,6 @@ class CreditsState extends MusicBeatState
 				noLink = false;
 			}
 			if(noLink) {
-
 			if(controls.ACCEPT) {
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 			} 
