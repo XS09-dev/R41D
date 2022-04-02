@@ -136,3 +136,5 @@ Smoother Transitions to a new menu.
 Accuracy: Notes are way more accurate. Meaning sicks aren't as unaccurate.
 
 # REMEMBER: You can also get your cool idea added to R41D
+
+# WEEK 7: It's out on R41D!
