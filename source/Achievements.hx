@@ -37,6 +37,7 @@ class Achievements {
 		["M.I.L.K :troll:",					"Beat Week 4 on Hard with no Misses.",				'week4_nomiss',			'week4', 		false],
 		["Worst Chirstmas ever",			"Beat Week 5 on Hard with no Misses.",				'week5_nomiss',			'week5',		false],
 		["Wait she plays this garbage?",					"Beat Week 6 on Hard with no Misses.",				'week6_nomiss',			'week6',		false],
+		["Cock joke",					"Beat Week 7 on Hard with no Misses.",				'week7_nomiss',			'week7',		false],
 		["What a Funkin' Disaster!",	"Complete a Song with a rating lower than 20%.",	'ur_bad',				null, 			false],
 		["Perfectionist",				"Complete a Song with a rating of 100%.",			'ur_good',				null,			false],
 		["Roadkill Enthusiast",			"Watch the Henchmen die over 100 times.",			'roadkill_enthusiast',	null, 			false],

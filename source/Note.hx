@@ -114,6 +114,10 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 				case 'No Animation':
 					noAnimation = true;
+				case 'PreetyGoodNote':
+					mustPress;			
+					reloadNote('SHARED');
+					noteSplashTexture = 'HURTnoteSplashes';		
 				case 'GF Sing':
 					gfNote = true;
 			}
