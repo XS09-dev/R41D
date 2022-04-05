@@ -112,12 +112,13 @@ class CreditsState extends MusicBeatState
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",						'https://twitter.com/kawaisprite',		'6475F3'],
 			[''],
 			['Special Thanks'],
-			['MagnumsrtYT',        '',      "Made the stage editor",                                'https://twitter.com/MagnumsrtYT',      '0000FF'],
-			['BeastlyGhost',       '',      "Editor Disabled in story menu",                        'https://twitter.com/Fan_de_RPG',       '00A2E8'],
-			['MisterRafers',       '',      "Made Instant Respawn",                                 'https://github.com/MisterRafers',      'FFC0CB'],
-			['Michael',            '',      "HaxeFlixel auto pause option",                         'https://github.com/ActualMandM',       '0c9db5'],
-			['Cherif107',          '',      "NOLINK creditstate",                                   'https://github.com/Cherif107',         '0c9db5'],
-			['Thank you Psych Team']
+			['MagnumsrtYT',         'magnum',           "Made the stage editor",                                'https://twitter.com/MagnumsrtYT',      '0000FF'],
+			['BeastlyGhost',        'beastlyghost',     "Editor Disabled in story menu",                        'https://twitter.com/Fan_de_RPG',       '00bd9d'],
+			['MisterRafers',        'gitbruhicon',      "Made Instant Respawn",                                 'https://github.com/MisterRafers',      'd282e0'],
+			['Michael',             'michael',          "HaxeFlixel auto pause option",                         'https://github.com/ActualMandM',       '0e9cb7'],
+			['Cherif107',           'cream',            "NOLINK creditstate",                                   'https://github.com/Cherif107',         'ffeabe'],
+			['blueDev2',            'reallybreh',       "Drag n drop in character editor",                      'https://github.com/blueDev2',          'a656da'],
+			['CerBor',              'cerbor',           "Song difficulty changer in debug mode",                'https://github.com/CerBor',            '621ed1'],
         ];
 		
 		for(i in pisspoop){

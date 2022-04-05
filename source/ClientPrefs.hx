@@ -82,7 +82,9 @@ class ClientPrefs {
 		'volume_down'	=> [NUMPADMINUS, MINUS],
 		
 		'debug_1'		=> [SEVEN, NONE],
-		'debug_2'		=> [EIGHT, NONE]
+		'debug_2'		=> [EIGHT, NONE],
+		'debug_3'		=> [ONE, NONE],
+		'debug_4'		=> [TWO, NONE],
 	];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 

@@ -128,6 +128,12 @@ Thanks to https://github.com/Cherif107 you can put "nolink" where you are suppos
 Thanks to https://github.com/ActualMandM now have an option to disable or enable haxeflixel autopause.
 So ya know you don't have to deal with long ass cutscenes.
 
+## Drag n drop in char editor
+Credits to https://github.com/blueDev2 for allowing you to click on your character and drag it to a different place.
+
+## Ability to change the song difficulty in the chart editor
+Credits to https://github.com/CerBor for adding a drop down menu for difficulty selection. 
+
 ## Smoother Gameplay
 FPS: Min = 30 fps Max = 360 fps.
 Ratings: Even better.
@@ -136,5 +142,3 @@ Smoother Transitions to a new menu.
 Accuracy: Notes are way more accurate. Meaning sicks aren't as unaccurate.
 
 # REMEMBER: You can also get your cool idea added to R41D
-
-# WEEK 7: It's out on R41D!

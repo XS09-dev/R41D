@@ -30,15 +30,15 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
+	private var debugKeysCharacter:Array<FlxKey>;
+	private var debugKeysBoi:Array<FlxKey>;
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		'options',
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
-		#if !switch 'donate' #end
+		'options', 
+		'mods'
 	];
 
 	var magenta:FlxSprite;
@@ -49,6 +49,9 @@ class MainMenuState extends MusicBeatState
 	override function create()
 	{
 		WeekData.loadTheFirstEnabledMod();
+
+		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_3'));
+		debugKeysBoi = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_4'));
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -125,19 +128,23 @@ class MainMenuState extends MusicBeatState
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
-
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "R41D v0.2.5", 12);
+		
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 84, 0, "R41D v0.3.0", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Psych Engine v0.5.2", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+	    var binds:FlxText = new FlxText(12, FlxG.height - 24, 0, "Press 1 for achievements and 2 for credits", 12);
+		binds.scrollFactor.set();
+		binds.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(binds);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -238,12 +245,10 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
 									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
+										MusicBeatState.switchState(new options.OptionsState());
+									case 'mods':
+										MusicBeatState.switchState(new ModsMenuState());
 								}
 							});
 						}
@@ -255,6 +260,22 @@ class MainMenuState extends MusicBeatState
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
+			}
+			#end
+
+			#if desktop
+			else if (FlxG.keys.anyJustPressed(debugKeysBoi))
+			{
+				selectedSomethin = true;
+				MusicBeatState.switchState(new CreditsState());
+			}
+			#end
+
+			#if desktop
+			else if (FlxG.keys.anyJustPressed(debugKeysCharacter))
+			{
+				selectedSomethin = true;
+				MusicBeatState.switchState(new AchievementsMenuState());
 			}
 			#end
 		}

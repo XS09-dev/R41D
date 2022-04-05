@@ -17,6 +17,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import flixel.graphics.FlxGraphic;
+import flixel.math.FlxPoint;
 import WeekData;
 
 using StringTools;
@@ -48,6 +49,9 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	var loadedWeeks:Array<WeekData> = [];
+
+	// The begining mouse location that all drag movements are in reference of
+	private var mouseLocation:FlxPoint;
 
 	override function create()
 	{

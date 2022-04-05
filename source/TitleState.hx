@@ -114,7 +114,7 @@ class TitleState extends MusicBeatState
 			http.onData = function (data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
+				var curVersion:String = SelectState.psychEngineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
 					trace('versions arent matching!');
@@ -130,7 +130,7 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
-		FlxG.game.focusLostFramerate = 60;
+		FlxG.game.focusLostFramerate = 90;
 		FlxG.sound.muteKeys = muteKeys;
 		FlxG.sound.volumeDownKeys = volumeDownKeys;
 		FlxG.sound.volumeUpKeys = volumeUpKeys;
@@ -184,6 +184,7 @@ class TitleState extends MusicBeatState
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
 
+		FlxG.fixedTimestep = false;
 		FlxG.mouse.visible = false;
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());
